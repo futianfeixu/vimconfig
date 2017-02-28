@@ -24,7 +24,6 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vimcn/vimcdoc'
-Plugin 'tpope/vim-fugitive'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -41,14 +40,22 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 augroup base_config
     autocmd!
-    let mapleader = "_"
-    inoremap jk <esc>
     set ts=4
     set expandtab
     set autoindent
+    set nu
+augroup END
+
+augroup mapping_config
+    inoremap jk <esc>
     inoremap <esc> <nop>
+    let mapleader = "_"
     nnoremap <leader>ev :vsplit $MYVIMRC<cr>
     nnoremap <leader>sv :source $MYVIMRC<cr>
+augroup END
+
+augroup auto_config
+
 augroup END
 
 augroup plugin_config
